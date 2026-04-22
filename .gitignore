@@ -1,0 +1,16 @@
+-e 
+# Environment and credential files
+.env
+.env.*
+*.env
+credentials.json
+*.pem
+*.key
+.credentials
+.emergent/
+.gitconfig
+/package-lock.json
+/frontend/node_modules/
+.emergent/
+.gitconfig
+/package-lock.json

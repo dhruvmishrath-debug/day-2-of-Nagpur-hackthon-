@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafaf9;
+  color: #1c1917;
+}
+
+@layer base {
+  :root {
+    --background: 60 9% 98%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 142 72% 29%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 60 5% 96%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 60 5% 96%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 142 76% 94%;
+    --accent-foreground: 142 72% 23%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 142 72% 29%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
+
+.leaflet-container { z-index: 0; font-family: 'Manrope', sans-serif; }
+.leaflet-pane, .leaflet-top, .leaflet-bottom { z-index: 1 !important; }
+
+.ev-marker {
+  width: 34px; height: 34px; border-radius: 50%; border: 3px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 700; font-family: 'Outfit', sans-serif; font-size: 13px;
+}
+.ev-marker-normal { background: #16a34a; }
+.ev-marker-emergency { background: #ef4444; }
+.ev-marker-best {
+  background: linear-gradient(135deg, #16a34a, #065f46);
+  width: 42px; height: 42px; border: 3px solid #fde68a;
+  box-shadow: 0 0 0 4px rgba(22,163,74,0.25), 0 6px 14px rgba(0,0,0,0.2);
+}
+.leaflet-marker-icon { outline: none; }
+
+.emergency-ring {
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+  animation: ring-pulse 2s infinite;
+}
+@keyframes ring-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  70% { box-shadow: 0 0 0 18px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
